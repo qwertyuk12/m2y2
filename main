@@ -1,1 +1,41 @@
-
+import telebot
+    
+    # Инициализация бота с использованием его токена
+bot = telebot.TeleBot("7647846154:AAEFyGI09QonNyykL2ibJbOyaZj8cyknIfw")
+    
+    # Обработчик команды '/start' и '/hello'
+@bot.message_handler(commands=['start', 'hello'])
+def send_welcome(message):
+    bot.reply_to(message, f'Привет! Я бот у меня есть команды:/heh /r {bot.get_me().first_name}!')
+    
+# Обработчик команды '/heh'
+@bot.message_handler(commands=['heh'])
+def send_heh(message):
+    count_heh = int(message.text.split()[1]) if len(message.text.split()) > 1 else 5
+    bot.reply_to(message, "he" * count_heh)
+@bot.message_handler(commands=["r"])
+def raz_lag(message):
+    bot.reply_to(message,"вот доступные команды что бы помотреть сколько разлагаются тот или иной бытовой мусор:/gazetka /buketi /ofic_bumaga /trapki /plastik /aluminiy /steklo")
+@bot.message_handler(commands=["gazetka"])
+def raz_gaz(message):
+    bot.reply_to(message,"Газетная бумага. Срок разложения - 1-4 месяца. Как ни обидно, но купленная вами газета, не попавшая в переработку, может ещё 4 месяца раздражать дворников и просто чистоплотных граждан своим видом. ")
+@bot.message_handler(commands=["buketi"])
+def raz_buk(message):
+    bot.reply_to(message,"Остатки букетов, икебана, листья, веточки, банальные семечки. Срок разложения - 3-4 месяца")
+@bot.message_handler(commands=["ofic_bumaga"])
+def raz_bum(message):
+    bot.reply_to(message,"Офисная бумага. Срок разложения - 2 года. Плотный и многослойный картон. Потребует 3 месяца и подходящие условия для того, чтобы прекратить засорять окружающую среду. Так что, покупая пиццу, помните: ваш удар по природе займёт целый семестр, а то и больше.")
+@bot.message_handler(commands=["trapki"])
+def raz_trapki(message):
+    bot.reply_to(message,"Обычная тряпка. Срок разложения - до 3 лет.Тряпка, которой вы только что протёрли стекло автомобиля и, не глядя, бросили в кусты, будет разлагаться минимум 3 года. ")
+@bot.message_handler(commands=["plastik"])
+def raz_plast(message):
+    bot.reply_to(message,"Пластик. Разлагается 180-200 лет. Опасен и токсичен, причём все его виды. Острова пластикового мусора в океане видны из космоса!")
+@bot.message_handler(commands=["aluminiy"])
+def raz_alum(message):
+    bot.reply_to(message,"Алюминиевая банка. Разлагается 500 лет. Королева загрязнения! При этом выделяет вредные вещества при окислении и доминирует среди мусора на нашей планете.")
+@bot.message_handler(commands=["steklo"])
+def raz_steklo(message):
+    bot.reply_to(message,"Стекло. Точный срок разложения науке неизвестен. Король мусора! Ведь придумали его в 9-м веке до нашей эры! А оно до сих пор способно порезать неосторожного исследователя")
+    # Запуск бота
+bot.polling()
