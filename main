@@ -1,7 +1,7 @@
 import telebot
     
     # Инициализация бота с использованием его токена
-bot = telebot.TeleBot("7647846154:AAEFyGI09QonNyykL2ibJbOyaZj8cyknIfw")
+bot = telebot.TeleBot("ФФФФФФФФФФФФФФФФФФФФФФФФФФФЦЦЦЦЦЦЦЦЦЦЦЦЦЦЦЦЦЦЦЦЦЦЦЦЦЦУУУУУУУУУУУУУУУУУУУУУУ")
     
     # Обработчик команды '/start' и '/hello'
 @bot.message_handler(commands=['start', 'hello'])
